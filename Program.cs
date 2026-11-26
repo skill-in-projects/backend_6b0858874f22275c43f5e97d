@@ -108,6 +108,7 @@ var app = builder.Build();
 // Add global exception handler middleware FIRST (before other middleware)
 // This ensures it catches all exceptions in the pipeline
 app.UseMiddleware<Backend.Middleware.GlobalExceptionHandlerMiddleware>();
+app.UseMiddleware<Backend.Middleware.DatabaseRestingMiddleware>();
 app.UseMiddleware<Backend.Middleware.ReadOnlyDatabaseMiddleware>();
 
 // Enable Swagger in all environments (including production)
